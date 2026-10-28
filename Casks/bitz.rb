@@ -8,7 +8,7 @@ cask "bitz" do
   desc "Cyberpunk desktop companion reacting to coding focus and AI agents"
   homepage "https://github.com/AkramKs/bitz-mac"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Bitz.app"
 
