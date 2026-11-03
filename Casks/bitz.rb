@@ -1,6 +1,6 @@
 cask "bitz" do
-  version "1.3.1"
-  sha256 "c23af1b93766e6853250845eb075ae8e59ad23a566e30b6a521319442f21cc8e"
+  version "1.3.2"
+  sha256 "dc63f3e35e9ff488fc9dfb62f6e0999329277e8d33ea2bc52c84f0ae733c7d4f"
 
   url "https://github.com/AkramKs/bitz-releases/releases/download/v#{version}/Bitz.dmg"
   name "Bitz"
