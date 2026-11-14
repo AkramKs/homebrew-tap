@@ -1,6 +1,6 @@
 cask "bitz" do
-  version "1.3.2"
-  sha256 "dc63f3e35e9ff488fc9dfb62f6e0999329277e8d33ea2bc52c84f0ae733c7d4f"
+  version "1.3.3"
+  sha256 "581eca43a99ff1c1d2f9254ac935a3671a5682551b9ee564ac572a32dbd928a7"
 
   url "https://github.com/AkramKs/bitz-releases/releases/download/v#{version}/Bitz.dmg"
   name "Bitz"
@@ -12,8 +12,12 @@ cask "bitz" do
 
   app "Bitz.app"
 
+  # Bitz's own data only: Application Support/Bitz/Meetings holds the user's recordings and is kept.
+  # rmdir removes the Bitz folder only once it is empty.
   zap trash: [
-    "~/Library/Application Support/Bitz",
-    "~/Library/Preferences/com.bitz.cybercat.plist",
-  ]
+        "~/Library/Application Support/Bitz/agent-events",
+        "~/Library/Application Support/Bitz/inbox",
+        "~/Library/Preferences/com.bitz.cybercat.plist",
+      ],
+      rmdir: "~/Library/Application Support/Bitz"
 end
