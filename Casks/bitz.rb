@@ -1,6 +1,6 @@
 cask "bitz" do
-  version "1.3.3"
-  sha256 "581eca43a99ff1c1d2f9254ac935a3671a5682551b9ee564ac572a32dbd928a7"
+  version "1.0.0"
+  sha256 "914c65c668e86d011e5bcf41890b24f9c8fe7806a97c18b489b0dd1e81b75342"
 
   url "https://github.com/AkramKs/bitz-releases/releases/download/v#{version}/Bitz.dmg"
   name "Bitz"
@@ -20,4 +20,20 @@ cask "bitz" do
         "~/Library/Preferences/com.bitz.cybercat.plist",
       ],
       rmdir: "~/Library/Application Support/Bitz"
+
+  caveats <<~EOS
+    Bitz is currently in free Public Beta and uses ad-hoc code signing
+    (Apple Developer ID notarization will follow at commercial launch).
+
+    If macOS Gatekeeper quarantines or blocks Bitz on first launch
+    (macOS 15 Sequoia+ removed the right-click -> Open shortcut), run:
+      xattr -cr /Applications/Bitz.app
+    Or open:
+      System Settings -> Privacy & Security -> Open Anyway
+
+    If Meeting Recorder permissions stop working after a Beta update,
+    toggle Microphone / Screen Recording off and on in System Settings
+    -> Privacy & Security, or reset TCC grants with:
+      tccutil reset All com.bitz.cybercat
+  EOS
 end
